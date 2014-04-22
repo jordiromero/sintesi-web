@@ -50,7 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'restauria';
-$db['default']['password'] = 'xMg7qLOOfSfb2';
+$db['default']['password'] = '';
 $db['default']['database'] = 'restauria';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
