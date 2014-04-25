@@ -33,6 +33,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men&uacute; <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Insertar Men&uacute;s</a></li>
+            <li><a href="<?php echo base_url();?>index.php/menucontroller/getMenu">Visualitza Men&uacute;s</a></li>
             <li><a href="#">Consulta Reserves</a></li>
             <li><a href="#">Usuaris</a></li>
           </ul>
@@ -42,5 +43,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>	
-Heu entrat com a: <?php echo $this->user->username; ?> - <a href="<?php echo site_url('inici/logout'); ?>">Sortir </a>
+<div align="right">Heu entrat com a: <?php echo $this->user->username; ?> - <a href="<?php echo base_url();?>index.php/inici/logout">Sortir </a></div>
 
