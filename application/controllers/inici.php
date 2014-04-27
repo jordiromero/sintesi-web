@@ -30,6 +30,7 @@ class Inici extends CI_Controller {
         	$this->load->model('login_model');
         		// Es carrega la llibreria form_validation.
         	$this->load->library('form_validation');
+               
         	// Se li assigna la informació a la variable $user.
         	$this->user = @$this->session->userdata('logged_user');
     }
@@ -60,7 +61,7 @@ class Inici extends CI_Controller {
                 // Obtenim la informació del usuari des de el model login_model.
                 $logged_user = $this->login_model->get($_POST['username'], $_POST['password']);
 
-                // Si existeix l'usuari creem la sessií i redirigim al index.
+                // Si existeix l'usuari creem la sessió i redirigim al index.
                 if($logged_user) {
                     $this->session->set_userdata('logged_user', $logged_user);
                     redirect('inici/index');

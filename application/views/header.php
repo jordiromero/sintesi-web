@@ -1,6 +1,6 @@
 <html>
 	<head>
-
+    <meta charset="utf-8"/>
 		<title>Restauria</title>
 		<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -22,13 +22,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Restauria</a>
+      <a class="navbar-brand" href="<?php echo base_url();?>index.php/inici/index">Restauria</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Inici</a></li>
+        <li class="active"><a href="<?php echo base_url();?>index.php/inici/index">Inici</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men&uacute; <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -43,5 +43,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>	
-<div align="right">Heu entrat com a: <?php echo $this->user->username; ?> - <a href="<?php echo base_url();?>index.php/inici/logout">Sortir </a></div>
+
 

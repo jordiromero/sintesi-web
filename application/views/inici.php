@@ -1,6 +1,8 @@
 <body>
-<h1>P&agrave;gina Cr&egrave;dit de sintesi</h1>
-
+<div class='container'>
+	<div align="right">Heu entrat com a: <?php echo $this->user->username; ?>  - <a href="<?php echo base_url();?>index.php/inici/logout">Sortir </a></div>
+<h1>P&agrave;gina inicial Cr&egrave;dit de Sintesi</h1>
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
