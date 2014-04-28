@@ -13,4 +13,14 @@ class Menu_model extends CI_Model{
 		$query=$this->db->get('menu');
 		return $query;
 	}
+
+	function setMenu($image, $name, $description, $type){
+
+		$data = array(
+			'image'=>$image,
+			'name'=>$name,
+			'description'=>$description,
+			'type'=>$type);
+		return $this->db->insert('menu',$data);
+	}
 }
