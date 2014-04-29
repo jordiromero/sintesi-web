@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Inici extends CI_Controller {
+class Main extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -27,7 +27,7 @@ class Inici extends CI_Controller {
 
         	$this->load->helper('form');
         		//Carreguem el model
-        	$this->load->model('login_model');
+        	$this->load->model('restauria_model');
         		// Es carrega la llibreria form_validation.
         	$this->load->library('form_validation');
                
@@ -37,7 +37,7 @@ class Inici extends CI_Controller {
 
 	public function index(){
 
-		if(!@$this->user) redirect ('inici/login');
+		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
 		$this->load->view('inici');
 	}
@@ -59,12 +59,12 @@ class Inici extends CI_Controller {
             if ($this->form_validation->run() == TRUE) {
 
                 // Obtenim la informació del usuari des de el model login_model.
-                $logged_user = $this->login_model->get($_POST['username'], $_POST['password']);
+                $logged_user = $this->restauria_model->get($_POST['username'], $_POST['password']);
 
                 // Si existeix l'usuari creem la sessió i redirigim al index.
                 if($logged_user) {
                     $this->session->set_userdata('logged_user', $logged_user);
-                    redirect('inici/index');
+                    redirect('main/index');
                 } else {
                     // sino s' activa el error_login.
                     $data['error_login'] = TRUE;
@@ -79,8 +79,40 @@ class Inici extends CI_Controller {
 
 	public function logout() {
         $this->session->unset_userdata('logged_user');
-        redirect('inici/index');
+        redirect('main/index');
     }
+
+	public function getMenu(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$menu ['query'] = $this->restauria_model->getMenu();
+		$this->load->view('menu',$menu);
+	}
+
+	public function setMenu(){
+		if(!@$this->user) redirect ('main/login');
+		$this->form_validation->set_rules('name','name','required');
+		$this->form_validation->set_message('required', 'El camp no pot estar buit');
+		if($this->form_validation->run()==TRUE){
+			$config['upload_path']='/sintesi/assets/image/menu/';
+			$this->load->library('upload',$config);
+			
+				$file_info=$this->upload->data();
+				$data=array('upload_data'=>$this->upload->data());
+				$image=$file_info['file_name'];
+				$name=$this->input->post('name');
+				$description=$this->input->post('description');
+				$type=$this->input->post('type');
+				$upload = $this->restauria_model->setMenu($image, $name, $description, $type);
+				$this->load->view('header');
+		    	$this->load->view('insert_menu',$data);
+			}else{
+			$this->load->view('header');
+		    	$this->load->view('insert_menu');
+		}
+		
+	}
+
 }
 
 /* End of file welcome.php */

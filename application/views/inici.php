@@ -1,6 +1,6 @@
 <body>
 <div class='container'>
-	<div align="right">Heu entrat com a: <?php echo $this->user->username; ?>  - <a href="<?php echo base_url();?>index.php/inici/logout">Sortir </a></div>
+	
 <h1>P&agrave;gina inicial Cr&egrave;dit de Sintesi</h1>
 </div>
 

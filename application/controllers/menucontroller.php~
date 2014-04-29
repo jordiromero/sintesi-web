@@ -12,7 +12,7 @@ class Menucontroller extends CI_Controller {
 
 	public function getMenu(){
 		$this->load->view('header');
-		$menu ['query'] = $this->restauria_model->getMenu();
+		$menu ['query'] = $this->menu_model->getMenu();
 		$this->load->view('menu',$menu);
 	}
 
