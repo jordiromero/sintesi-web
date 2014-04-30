@@ -11,5 +11,3 @@ foreach($css_files as $file): ?>
 	<div class="container">
 		<?php echo $output; ?>
 	</div>
-</body>
-</html>

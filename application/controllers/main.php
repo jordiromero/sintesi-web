@@ -44,6 +44,7 @@ class Main extends CI_Controller {
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
 		$this->load->view('inici');
+			
 	}
 
 	public function login() {
@@ -90,6 +91,7 @@ class Main extends CI_Controller {
 		$this->load->view('tab');
 		$menu ['query'] = $this->restauria_model->getMenu();
 		$this->load->view('menu',$menu);
+		$this->load->view('footer');
 	}
 
 /*	public function setMenu(){
@@ -120,9 +122,8 @@ class Main extends CI_Controller {
 
 		//$crud = new grocery_Crud();
 		$this->grocery_crud->set_table('menu');
-		$this->grocery_crud->set_theme('datatables');
+		$this->grocery_crud->set_theme('flexigrid');
 		$this->grocery_crud->columns('image', 'name','description','type');
-		$this->grocery_crud->fields('Imatge', 'Nom','Descripció','Tipus');
 		$this->grocery_crud->set_field_upload('image','assets/images/menu');
 		$sortida = $this->grocery_crud->render();
 		$this->_exemple_output($sortida);
@@ -131,6 +132,7 @@ class Main extends CI_Controller {
         $this->load->view('header');
         $this->load->view('tab');
         $this->load->view('crud', $sortida);
+        $this->load->view('footer');
     } 
 }
 
