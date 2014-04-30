@@ -35,4 +35,6 @@ class Restauria_model extends CI_Model {
 			'type'=>$type);
 		return $this->db->insert('menu',$data);
 	}
+
+    
 }

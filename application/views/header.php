@@ -43,5 +43,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>	
-<div align="right">Heu entrat com a: <?php echo $this->user->username; ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></div>
+<div class="container" align="right">Heu entrat com a: <?php echo $this->user->username; ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></div>
 

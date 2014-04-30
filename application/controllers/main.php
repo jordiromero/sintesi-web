@@ -23,14 +23,18 @@ class Main extends CI_Controller {
 
         parent::__construct();
 
+        	$this->load->database();
+            $this->load->library('grocery_CRUD');
+
         	$this->load->helper('url');
 
         	$this->load->helper('form');
         		//Carreguem el model
         	$this->load->model('restauria_model');
+        	$this->load->model('grocery_crud_model');
         		// Es carrega la llibreria form_validation.
         	$this->load->library('form_validation');
-               
+            
         	// Se li assigna la informació a la variable $user.
         	$this->user = @$this->session->userdata('logged_user');
     }
@@ -73,9 +77,7 @@ class Main extends CI_Controller {
         }
 
         $this->load->view('login_view', $data);
-
-
-    }
+	}
 
 	public function logout() {
         $this->session->unset_userdata('logged_user');
@@ -85,11 +87,12 @@ class Main extends CI_Controller {
 	public function getMenu(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
+		$this->load->view('tab');
 		$menu ['query'] = $this->restauria_model->getMenu();
 		$this->load->view('menu',$menu);
 	}
 
-	public function setMenu(){
+/*	public function setMenu(){
 		if(!@$this->user) redirect ('main/login');
 		$this->form_validation->set_rules('name','name','required');
 		$this->form_validation->set_message('required', 'El camp no pot estar buit');
@@ -111,9 +114,23 @@ class Main extends CI_Controller {
 		    	$this->load->view('insert_menu');
 		}
 		
-	}
+	}*/
 
+	public function getMenuAmanida(){
+
+		//$crud = new grocery_Crud();
+		$this->grocery_crud->set_table('menu');
+		//$crud->columns('id', 'image', 'name','description','type');
+		$sortida = $this->grocery_crud->render();
+		$this->_exemple_output($sortida);
+	}
+	public function _exemple_output($sortida = null){
+        $this->load->view('header');
+        $this->load->view('tab');
+        $this->load->view('crud', $sortida);
+    } 
 }
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
+?>
