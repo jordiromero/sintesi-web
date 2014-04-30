@@ -6,8 +6,8 @@
 		<li><a href="#">Arrosos</a></li>
 		<li><a href="#">Pasta</a></li>
 		<li><a href="#">Carn</a></li>
-		<li><a href="#">Postre</a></li>
-		<li><a href="#">Vi</a></li>
+		<li><a href="#">Carta de Postre</a></li>
+		<li><a href="#">Carta de Vins</a></li>
 	</ul>
 </br>
 </div>

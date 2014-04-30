@@ -120,7 +120,10 @@ class Main extends CI_Controller {
 
 		//$crud = new grocery_Crud();
 		$this->grocery_crud->set_table('menu');
-		//$crud->columns('id', 'image', 'name','description','type');
+		$this->grocery_crud->set_theme('datatables');
+		$this->grocery_crud->columns('image', 'name','description','type');
+		$this->grocery_crud->fields('Imatge', 'Nom','Descripció','Tipus');
+		$this->grocery_crud->set_field_upload('image','assets/images/menu');
 		$sortida = $this->grocery_crud->render();
 		$this->_exemple_output($sortida);
 	}
