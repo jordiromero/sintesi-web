@@ -4,12 +4,17 @@
 		<title>Restauria</title>
 		<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Latest compiled CSS datatabes  -->
+<link rel="stylesheet" href="<?php echo base_url();?>assets/DataTables/media/css/jquery.dataTables.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript datatables-->
+<script src="<?php echo base_url();?>assets/DataTables/media/js/jquery.dataTables.js"></script>
+
 	</head>	
 
 <nav class="navbar navbar-default" role="navigation">
