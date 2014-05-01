@@ -1,8 +1,7 @@
 <body>
 	
 <div class="container">
-	<h1>Menús</h1>
-
+	<h1>Ensalades</h1>
 	<table id="taula" class="table table-hover table-condensed table table-bordered">
 	
 <thead>
@@ -26,5 +25,3 @@
 ?>
 </table>
 </div>
-
-

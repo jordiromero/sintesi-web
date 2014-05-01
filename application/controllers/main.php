@@ -23,7 +23,9 @@ class Main extends CI_Controller {
 
         parent::__construct();
 
+        	//Carreguem el fitxer database.php
         	$this->load->database();
+        	//Carreguem la llibreria grocery_CRUD
             $this->load->library('grocery_CRUD');
 
         	$this->load->helper('url');
@@ -31,7 +33,8 @@ class Main extends CI_Controller {
         	$this->load->helper('form');
         		//Carreguem el model
         	$this->load->model('restauria_model');
-        	$this->load->model('grocery_crud_model');
+
+        	//$this->load->model('grocery_crud_model');
         		// Es carrega la llibreria form_validation.
         	$this->load->library('form_validation');
             
@@ -94,46 +97,43 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-/*	public function setMenu(){
+	public function getSalad(){
 		if(!@$this->user) redirect ('main/login');
-		$this->form_validation->set_rules('name','name','required');
-		$this->form_validation->set_message('required', 'El camp no pot estar buit');
-		if($this->form_validation->run()==TRUE){
-			$config['upload_path']='/sintesi/assets/image/menu/';
-			$this->load->library('upload',$config);
-			
-				$file_info=$this->upload->data();
-				$data=array('upload_data'=>$this->upload->data());
-				$image=$file_info['file_name'];
-				$name=$this->input->post('name');
-				$description=$this->input->post('description');
-				$type=$this->input->post('type');
-				$upload = $this->restauria_model->setMenu($image, $name, $description, $type);
-				$this->load->view('header');
-		    	$this->load->view('insert_menu',$data);
-			}else{
-			$this->load->view('header');
-		    	$this->load->view('insert_menu');
-		}
-		
-	}*/
-
-	public function getMenuAmanida(){
-
-		//$crud = new grocery_Crud();
-		$this->grocery_crud->set_table('menu');
-		$this->grocery_crud->set_theme('flexigrid');
-		$this->grocery_crud->columns('image', 'name','description','type');
-		$this->grocery_crud->set_field_upload('image','assets/images/menu');
-		$sortida = $this->grocery_crud->render();
-		$this->_exemple_output($sortida);
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getSalad(1);
+		$this->load->view('salad',$menu);
+		$this->load->view('footer');
 	}
-	public function _exemple_output($sortida = null){
+
+	public function setMenu(){
+
+		if(!@$this->user) redirect ('main/login');
+		$this->grocery_crud->set_table('menu');
+		$this->grocery_crud->set_theme('datatables');
+		$this->grocery_crud->columns('name','description','type');
+		$this->grocery_crud->set_relation('type','menu_type','m_type');
+		$this->grocery_crud->set_field_upload('image','assets/images/menu');
+		$output = $this->grocery_crud->render();
+		$this->_output_setMenu($output);
+	}
+
+	public function _output_setMenu($output = null){
         $this->load->view('header');
-        $this->load->view('tab');
-        $this->load->view('crud', $sortida);
+        $this->load->view('insert_menu', $output);
         $this->load->view('footer');
     } 
+
+
+
+
+
+
+
+
+
+
+
 }
 
 /* End of file welcome.php */

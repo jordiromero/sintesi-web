@@ -26,15 +26,15 @@ class Restauria_model extends CI_Model {
 		return $query;
 	}
 
-	function setMenu($image, $name, $description, $type){
+    function getSalad($salad){
 
-		$data = array(
-			'image'=>$image,
-			'name'=>$name,
-			'description'=>$description,
-			'type'=>$type);
-		return $this->db->insert('menu',$data);
-	}
+        $this->db->where('type', $salad); 
+        $query=$this->db->get('menu');
+        
+        return $query;
+    }
+
+	
 
     
 }
