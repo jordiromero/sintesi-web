@@ -101,17 +101,96 @@ class Main extends CI_Controller {
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
 		$this->load->view('tab');
-		$menu ['query'] = $this->restauria_model->getSalad(1);
+		$menu ['query'] = $this->restauria_model->getSalad();
 		$this->load->view('salad',$menu);
 		$this->load->view('footer');
 	}
+
+	public function getSoup(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getSoup();
+		$this->load->view('soup',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getRice(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getRice();
+		$this->load->view('rice',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getPasta(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getPasta();
+		$this->load->view('pasta',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getMeat(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getMeat();
+		$this->load->view('meat',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getAfters(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getAfters();
+		$this->load->view('afters',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getWine(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getWine();
+		$this->load->view('wine',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getStarters(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getStarters();
+		$this->load->view('starters',$menu);
+		$this->load->view('footer');
+	}
+
+	public function getSeafood(){
+		if(!@$this->user) redirect ('main/login');
+		$this->load->view('header');
+		$this->load->view('tab');
+		$menu ['query'] = $this->restauria_model->getSeafood();
+		$this->load->view('seafood',$menu);
+		$this->load->view('footer');
+	}
+
+
+
+
+
+
+
 
 	public function setMenu(){
 
 		if(!@$this->user) redirect ('main/login');
 		$this->grocery_crud->set_table('menu');
 		$this->grocery_crud->set_theme('datatables');
-		$this->grocery_crud->columns('name','description','type');
+		$this->grocery_crud->columns('name','description','type','price');
 		$this->grocery_crud->set_relation('type','menu_type','m_type');
 		$this->grocery_crud->set_field_upload('image','assets/images/menu');
 		$output = $this->grocery_crud->render();

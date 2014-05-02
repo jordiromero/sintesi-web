@@ -1,16 +1,14 @@
 <body>
 	
 <div class="container">
-	<h1>Menús</h1>
-
+	
 	<table id="taula" class="table table-hover table-condensed table table-bordered">
 	
 <thead>
         <tr>
+        <th>Arrosos</th>
         <th></th>
-        <th>Nom</th>
-		<th>Descripci&oacute;</th>	
-		<th>Tipus</th>
+		<th></th>	
 		<th>Preu</th>
 </thead>		
 <?php
@@ -20,7 +18,6 @@
 		echo "<td>"."<img src='/sintesi/assets/images/menu/$row->image' height='60' width='60'/>"."</td>";
 		echo "<td>".$row->name."</td>";
 		echo "<td>".$row->description."</td>";
-		echo "<td>".$row->m_type."</td>";
 		echo "<td>".$row->price. '€'."</td>";
 		echo "</tr>";
 		}
@@ -29,4 +26,9 @@
 </table>
 </div>
 
+<script type="text/javascript">
+	$(document).ready( function(){
+    	$('#taula').dataTable();
+	});
 
+</script>
