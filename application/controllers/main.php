@@ -47,6 +47,7 @@ class Main extends CI_Controller {
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
 		$this->load->view('inici');
+		//$this->load->view('footer');
 			
 	}
 
