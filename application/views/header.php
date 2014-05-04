@@ -7,6 +7,7 @@
     <!-- Latest compiled CSS datatabes  -->
 <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/DataTables/media/css/jquery.dataTables.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/ColVis/css/dataTables.colVis.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/ColReorder/css/dataTables.colReorder.css">
@@ -18,19 +19,18 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
 <!-- jQuery-->
+
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
 <!-- Latest compiled JavaScript datatables-->
-<!--<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url();?>assets/DataTables/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>assets/DataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>assets/DataTables/extensions/ColReorder/js/dataTables.colReorder.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>assets/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>assets/DataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url();?>assets/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.js"></script>-->
+<!--<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>-->
+
+
+
 
 	</head>	
 
@@ -73,4 +73,6 @@
 } );
 
 </script>
+
+
 
