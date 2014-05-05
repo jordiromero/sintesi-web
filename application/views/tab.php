@@ -1,6 +1,5 @@
 <div class="container">
-	<div class="bs-example">
-		
+	
 		<ul class="nav nav-tabs" id="tabs">
 			<li><a href="<?php echo base_url();?>index.php/main/getMenu">Tot</a></li>
 			<li><a href="<?php echo base_url();?>index.php/main/getStarters">Entrants</a></li>
@@ -14,7 +13,7 @@
 			<li><a href="<?php echo base_url();?>index.php/main/getWine">Carta de Vins</a></li>
 			<li><a href="<?php echo base_url();?>index.php/main/setMenu">Insertar Menú</a></li>
 		</ul>
-	</div>
+	
 </br>
 </div>
 
