@@ -40,6 +40,9 @@ class Main extends CI_Controller {
             
         	// Se li assigna la informació a la variable $user.
         	$this->user = @$this->session->userdata('logged_user');
+
+
+        
     }
 
 	public function index(){
@@ -47,7 +50,7 @@ class Main extends CI_Controller {
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
 		$this->load->view('inici');
-		//$this->load->view('footer');
+		$this->load->view('footer');
 			
 	}
 
@@ -188,7 +191,7 @@ class Main extends CI_Controller {
 
 	public function setMenu(){
 
-		//if(!@$this->user) redirect ('main/login');
+		if(!@$this->user) redirect ('main/login');
 		$this->grocery_crud->set_table('menu');
 		$this->grocery_crud->set_theme('datatables');
 		$this->grocery_crud->columns('name','description','type','price');
@@ -204,35 +207,11 @@ class Main extends CI_Controller {
         $this->load->view('footer');
     } 
 
-    public function facebook_login(){
 
-    	$fb_config = array(
 
-    		'appId' => '572546732844311',
-    		'secret' =>'70e061a0d07ff3910e60a0e0596065f8',
+   
 
-    		);
-    	
-    	$this->load->library('facebook',$fb_config);
-    	$user = null;
-    	$user_profile = null;
-    	$user = $this->facebook->getUser();
 
-    	if($user){
-
-    		try{
-    			$user_profile = $this->facebook->api('/me');
-    		} catch (FacebookApiException $e){
-    				show_error(print_r($e, TRUE), 500);
-    		}
-    	}
-
-    	$this->data['facebook'] = $this->facebook;
-    	$this->data['user'] = $user;
-    	$this->data['user_profile'] = $user_profile;
-
-    	$this->load->view('crud',$this->data);
-    }
 
 
 

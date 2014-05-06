@@ -1,6 +1,6 @@
-<body>
+<!--<body>-->
 	
-<div class="container">
+<!--<div class="container">-->
 	<h1>Menús</h1>
 
 	<table id="taula" class="table table-hover table-condensed table table-bordered">
@@ -29,4 +29,5 @@
 </table>
 </div>
 
+ 
 
