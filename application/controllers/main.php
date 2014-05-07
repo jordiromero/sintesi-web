@@ -92,6 +92,8 @@ class Main extends CI_Controller {
         redirect('main/index');
     }
 
+
+    // Mostra tots el plats que formen part de nostra base de dades
 	public function getMenu(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -101,6 +103,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	 // Mostra tots el plats que formen part de la categoria ensalada
 	public function getSalad(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -110,6 +113,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria sopa
 	public function getSoup(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -119,6 +123,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria arrosos
 	public function getRice(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -128,6 +133,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria pasta
 	public function getPasta(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -137,6 +143,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria carns
 	public function getMeat(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -146,6 +153,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria postres 
 	public function getAfters(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -154,7 +162,7 @@ class Main extends CI_Controller {
 		$this->load->view('afters',$menu);
 		$this->load->view('footer');
 	}
-
+	// Mostra tots el plats que formen part de la categoria carta de vins
 	public function getWine(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -164,6 +172,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria entrants
 	public function getStarters(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -173,6 +182,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// Mostra tots el plats que formen part de la categoria peixos
 	public function getSeafood(){
 		if(!@$this->user) redirect ('main/login');
 		$this->load->view('header');
@@ -183,17 +193,11 @@ class Main extends CI_Controller {
 	}
 
 
-
-
-
-
-
-
+	//Funció que a través de grocery_crud permet introduïr valors a la nostra base de dades dels plats que formen part de l'aplicació
 	public function setMenu(){
 
 		if(!@$this->user) redirect ('main/login');
 		$this->grocery_crud->set_table('menu');
-		$this->grocery_crud->set_theme('datatables');
 		$this->grocery_crud->columns('name','description','type','price');
 		$this->grocery_crud->set_relation('type','menu_type','m_type');
 		$this->grocery_crud->set_field_upload('image','assets/images/menu');
@@ -201,11 +205,28 @@ class Main extends CI_Controller {
 		$this->_output_setMenu($output);
 	}
 
+	//Funció que carrega la vista que mostrarà el grocery_crud
 	public function _output_setMenu($output = null){
         $this->load->view('header');
         $this->load->view('insert_menu', $output);
         $this->load->view('footer');
     } 
+
+    //Funció que ens permetra introduïr reserves a la nostra aplicació.
+    public function setBooking(){
+    	$this->grocery_crud->set_table('booking');
+		$this->grocery_crud->columns('id_booking','date','hour','user');
+		$output = $this->grocery_crud->render();
+		$this->_output_setBooking($output);
+
+    }
+
+    public function _output_setBooking($output = null){
+
+    	$this->load->view('header');
+        $this->load->view('crud', $output);
+        $this->load->view('footer');
+    }
 
 
 
