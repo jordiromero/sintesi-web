@@ -1,7 +1,7 @@
 <body>
 <div class="container">
 	<!---->
-		<ul class="nav nav-tabs"  id="tabs">
+		<ul class="nav nav-pills"  id="tabs">
 			<li><a href="<?php echo base_url();?>index.php/main/getMenu">Tot</a></li>
 			<li><a href="<?php echo base_url();?>index.php/main/getStarters">Entrants</a></li>
 			<li><a href="<?php echo base_url();?>index.php/main/getSalad">Amanides</a></li>

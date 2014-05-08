@@ -7,8 +7,8 @@
      </div>
 </div>
 
- 
-
+	
+<?=$this->session->userdata('username'); ?>
 
 
 </body>
