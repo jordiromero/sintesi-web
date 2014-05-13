@@ -228,6 +228,10 @@ class Main extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function datatime(){
+    	$this->load->view('template');
+    }
+
 
 
    
