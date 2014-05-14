@@ -34,7 +34,6 @@ class Main extends CI_Controller {
         		//Carreguem el model
         	$this->load->model('restauria_model');
 
-        	//$this->load->model('grocery_crud_model');
         		// Es carrega la llibreria form_validation.
         	$this->load->library('form_validation');
             
@@ -230,6 +229,20 @@ class Main extends CI_Controller {
 
     public function datatime(){
     	$this->load->view('template');
+    }
+
+    public function setUser(){
+    	$this->grocery_crud->set_table('users');
+    	$this->grocery_crud->set_relation('users_type_id','user_type','user_type');
+    	$output = $this->grocery_crud->render();
+    	$this->_output_setUser($output);
+    }
+
+    public function _output_setUser($output = null){
+
+    	$this->load->view('header');
+        $this->load->view('crud', $output);
+        $this->load->view('footer');
     }
 
 

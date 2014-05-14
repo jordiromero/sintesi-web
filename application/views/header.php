@@ -60,7 +60,7 @@
             <li><a href="<?php echo base_url();?>index.php/main/setMenu">Insertar Men&uacute;s</a></li>
             <li><a href="<?php echo base_url();?>index.php/main/getMenu">Visualitza Men&uacute;s</a></li>
             <li><a href="#">Consulta Reserves</a></li>
-            <li><a href="#">Usuaris</a></li>
+            <li><a href="<?php echo base_url();?>index.php/main/setUser">Usuaris</a></li>
           </ul>
         </li>
       </ul>
