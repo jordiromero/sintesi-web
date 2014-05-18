@@ -21,6 +21,30 @@ class Restauria_model extends CI_Model {
             )
         )->row();
     }
+    //Consulta el tipus d'usuari
+    function getUserType(){
+        $sql="SELECT username from users where users_type_id = (SELECT user_type_id from user_type where user_type = ?)";
+        $query=$this->db->query($sql,'Administrador');
+        return $query;
+
+    }
+
+    function setUserForm($name , $surname , $email , $username ,$password){
+        
+        $sql= "SELECT user_type_id from user_type where user_type = ?";
+        $query=$this->db->query($sql,'Client');
+
+        $data = array(
+            'name'=>$name,
+            'surname'=>$surname,
+            'email'=>$email,
+            'username'=>$username
+            );
+        return $this->db->insert('users',$data);
+
+    }
+
+
      function getMenu(){
 
 		

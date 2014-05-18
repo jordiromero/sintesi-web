@@ -14,19 +14,12 @@
 	</head>	
 	<body>
 
-<?php if(@$error_login): ?>
-    Error en l'usuari o contrasenya.
-    <br />
-<?php endif; ?>
 
-<?php echo @validation_errors(); ?>
-
-<br />
 <div class="container">
-    <img src="<?php echo base_url();?>assets/images/restauria.png">
+    <img src="<?php echo base_url();?>assets/images/restauria.png" >
 <form method="post">
     <fieldset>
-	<table class="table-striped">
+	<table class="table-striped" align="center">
 		<tr>
 			<th colspan="2" class="text-center">Inicia sessi&oacute;</th>
 
@@ -45,6 +38,18 @@
     </table>
     </fieldset>
 </form>
+
 </div>
+<div class="container">
+<?php if(@$error_login): ?>
+    Error en l'usuari o contrasenya.
+    <br />
+<?php endif; ?>
+
+<?php echo @validation_errors(); ?>
+
+<br />
+</div>
+
     </body>
 </html>

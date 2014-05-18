@@ -47,9 +47,13 @@ class Main extends CI_Controller {
 	public function index(){
 
 		if(!@$this->user) redirect ('main/login');
+		
+
 		$this->load->view('header');
 		$this->load->view('inici');
 		$this->load->view('footer');
+
+		
 			
 	}
 
@@ -89,6 +93,43 @@ class Main extends CI_Controller {
 	public function logout() {
         $this->session->unset_userdata('logged_user');
         redirect('main/index');
+    }
+
+    public function setUserForm(){
+    	$this->load->helper('form');
+    	$data = array();
+    	// Afegim les regles necesaries.
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        
+        // Generem un missatge d'error personalitzat per a l'acció 'required'
+        $this->form_validation->set_message('required', 'El camp %s es requerit.');
+        
+        if(!empty($_POST)){
+        	if ($this->form_validation->run()==TRUE) {
+
+        		$name = $this->input->post('name');
+        		$surname = $this->input->post('surname');
+        		$email = $this->input->post('email');
+        		$password = $this->input->post('password');
+        		$this->load->model('restauria_model');
+        		$user = $this->restauria_model->setUserForm($name, $surname, $email, $password);
+        	
+        	if ($user) {
+        		redirect('main/index');
+        	
+        	}else{
+        		$data['error'] = TRUE;
+        	}
+
+        	}
+        }
+    	
+    	
+    	$this->load->view('insert_user_form',$data);
+    	
     }
 
 
@@ -244,6 +285,8 @@ class Main extends CI_Controller {
         $this->load->view('crud', $output);
         $this->load->view('footer');
     }
+
+    
 
 
 
