@@ -97,10 +97,10 @@ class Main extends CI_Controller {
 
     public function setUserForm(){
     	$this->load->helper('form');
-    	$data = array();
+    	
     	// Afegim les regles necesaries.
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('password', 'password', 'required');
         $this->form_validation->set_rules('name', 'name', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
         
@@ -114,7 +114,6 @@ class Main extends CI_Controller {
         		$surname = $this->input->post('surname');
         		$email = $this->input->post('email');
         		$password = $this->input->post('password');
-        		$this->load->model('restauria_model');
         		$user = $this->restauria_model->setUserForm($name, $surname, $email, $password);
         	
         	if ($user) {
@@ -128,7 +127,7 @@ class Main extends CI_Controller {
         }
     	
     	
-    	$this->load->view('insert_user_form',$data);
+    	$this->load->view('insert_user_form');
     	
     }
 
@@ -273,6 +272,7 @@ class Main extends CI_Controller {
     }
 
     public function setUser(){
+    	if(!@$this->user) redirect ('main/login');
     	$this->grocery_crud->set_table('users');
     	$this->grocery_crud->set_relation('users_type_id','user_type','user_type');
     	$output = $this->grocery_crud->render();
@@ -282,7 +282,7 @@ class Main extends CI_Controller {
     public function _output_setUser($output = null){
 
     	$this->load->view('header');
-        $this->load->view('crud', $output);
+        $this->load->view('insert_user', $output);
         $this->load->view('footer');
     }
 

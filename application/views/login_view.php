@@ -16,6 +16,7 @@
 
 
 <div class="container">
+    <br>
     <img src="<?php echo base_url();?>assets/images/restauria.png" >
 <form method="post">
     <fieldset>
@@ -38,6 +39,7 @@
     </table>
     </fieldset>
 </form>
+<a href="<?php echo base_url();?>index.php/main/setUserForm">Registra Usuari</a>
 
 </div>
 <div class="container">

@@ -2,25 +2,27 @@
 	<style type="text/css">
 	table {
 		width: 100%;
-		border: 2px;
 		text-align: center;
+		
+	}
 
+	th,td{
+		padding: 30px;
 	}
 
 
 	</style>
 <div class='container'>
 	
-<h1>P&agrave;gina inicial Cr&egrave;dit de Sintesi</h1>
 	<table class="principal">
 		<tr>
-			<td><img src="<?php echo base_url();?>assets/images/principal/menu_crear.jpg"><br>Crea Menú</td>
-			<td><img src="<?php echo base_url();?>assets/images/principal/menu_consultar.jpg"><br>Consulta Carta</td>
-			<td>Crea Reserva</td>
+			<td><a href="<?php echo base_url();?>index.php/main/setMenu"><img src="<?php echo base_url();?>assets/images/principal/menu_crear.jpg" class="img-rounded"><br>Crea Menú</a></td>
+			<td><a href="<?php echo base_url();?>index.php/main/getMenu"><img src="<?php echo base_url();?>assets/images/principal/menu_consultar.jpg" class="img-rounded"><br>Consulta Carta</a></td>
+			<td><img src="<?php echo base_url();?>assets/images/principal/crea_reserva.jpg" class="img-rounded"><br>Crea Reserva</td>
 		</tr>
 		<tr>
-			<td><img src="<?php echo base_url();?>assets/images/principal/buscar_reserva.jpg"><br>Consulta Reserva</td>
-			<td><img src="<?php echo base_url();?>assets/images/principal/user_add.jpg"><br>Usuaris</td>
+			<td><img src="<?php echo base_url();?>assets/images/principal/buscar_reserva.jpg" class="img-rounded"><br>Consulta Reserva</td>
+			<td><a href="<?php echo base_url();?>index.php/main/setUser"><img src="<?php echo base_url();?>assets/images/principal/user_add.jpg" class="img-rounded"><br>Usuaris</a></td>
 		</tr>
 	</table>
 </div>

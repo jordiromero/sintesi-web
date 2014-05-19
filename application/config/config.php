@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.2.100/sintesi';
+$config['base_url']	= 'http://192.168.202.184/sintesi';
 
 /*
 |--------------------------------------------------------------------------

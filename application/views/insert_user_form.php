@@ -14,29 +14,37 @@
 
 	<div class="container">
 		<br><img src="<?php echo base_url();?>assets/images/restauria.png" ><br>
-		<form role="form" method="post">
+		<form method="post">
+
 			<div class="form-group">
 				<label for="name">Nom:</label>
-				<input type="text" class="form-control" id="name" placeholder="Nom" value="<?php echo @$_POST['name']; ?>">
+				<input type="text" class="form-control" name="name" id="name" placeholder="Nom" />
 			</div>
+
 			<div class="form-group">
 				<label for="surname">Cognoms:</label>
-				<input type="text" class="form-control" id="surname" placeholder="Cognoms" value="<?php echo @$_POST['surname']; ?>">
+				<input type="text" class="form-control" name="surname" id="surname" placeholder="Cognoms" />
 			</div>
+
 			<div class="form-group">
 				<label for="email">Email:</label>
-				<input type="email" class="form-control" id="email" placeholder="Email" value="<?php echo @$_POST['email']; ?>">
+				<input type="email" class="form-control" name="email" id="email" placeholder="Email" />
 			</div>
+
 			<div class="form-group">
 				<label for="username">Usuari:</label>
-				<input type="text" class="form-control" id="username" placeholder="Usuari" value="<?php echo @$_POST['username']; ?>">
+				<input type="text" class="form-control" name="username" id="username" placeholder="Usuari" />
 			</div>
+
 			<div class="form-group">
 				<label for="password">Password:</label>
-				<input type="password" class="form-control" id="password" placeholder="Password" value="<?php echo @$_POST['password']; ?>">
+				<input type="password" class="form-control" name="password" id="password" placeholder="Password" />
 			</div>
-			<button type="submit" class="btn btn-default">Registrat</button>
-			<button type="reset" class="btn btn-default">Cancel&middot;lar</button>
+
+			
+
+			<button type="submit" class="btn btn-primary">Registrat</button>
+			<button type="reset" class="btn btn-danger">Cancel&middot;lar</button>
 		</form>
 
 	</div>

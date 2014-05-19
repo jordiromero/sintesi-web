@@ -29,17 +29,20 @@ class Restauria_model extends CI_Model {
 
     }
 
-    function setUserForm($name , $surname , $email , $username ,$password){
+    function setUserForm($name, $surname, $email, $username, $password){
         
-        $sql= "SELECT user_type_id from user_type where user_type = ?";
-        $query=$this->db->query($sql,'Client');
+        $sql="SELECT user_type_id from user_type where user_type='Client'";
+        $query=$this->db->query($sql);
+        $query = $user_type_id;
 
         $data = array(
-            'name'=>$name,
-            'surname'=>$surname,
-            'email'=>$email,
-            'username'=>$username
-            );
+            'name' =>$name,
+            'surname' =>$surname,
+            'email' =>$email,
+            'username' =>$username,
+            'password' =>$password);
+            //'users_type_id' =>$user_type_id);
+
         return $this->db->insert('users',$data);
 
     }
