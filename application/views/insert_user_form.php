@@ -38,7 +38,12 @@
 
 			<div class="form-group">
 				<label for="password">Password:</label>
-				<input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+				<input type="password" class="form-control" name="pass" id="password" placeholder="Password" />
+			</div>
+
+			<div class="form-group">
+				<label></label>
+				<input type="hidden" class="form-control" name="user_id" id="user_id" value = "2" />
 			</div>
 
 			

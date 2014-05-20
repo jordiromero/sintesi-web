@@ -23,25 +23,27 @@ class Restauria_model extends CI_Model {
     }
     //Consulta el tipus d'usuari
     function getUserType(){
-        $sql="SELECT username from users where users_type_id = (SELECT user_type_id from user_type where user_type = ?)";
+       /* $sql="SELECT username from users where users_type_id = (SELECT user_type_id from user_type where user_type = ?)";
         $query=$this->db->query($sql,'Administrador');
+        return $query;*/
+        $sql="SELECT user_type_id from user_type where user_type= ?";
+        $query=$this->db->query($sql,'Client');
         return $query;
+        $data['user_type'] = $query;
+        $this->load->view('insert_user_form',$data);
 
     }
 
-    function setUserForm($name, $surname, $email, $username, $password){
+    function setUserForm($name, $surname,  $email, $username, $pass, $user_id){
         
-        $sql="SELECT user_type_id from user_type where user_type='Client'";
-        $query=$this->db->query($sql);
-        $query = $user_type_id;
-
+        
         $data = array(
             'name' =>$name,
             'surname' =>$surname,
             'email' =>$email,
             'username' =>$username,
-            'password' =>$password);
-            //'users_type_id' =>$user_type_id);
+            'password' =>$pass,
+            'users_type_id' => $user_id);
 
         return $this->db->insert('users',$data);
 

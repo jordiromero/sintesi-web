@@ -99,22 +99,27 @@ class Main extends CI_Controller {
     	$this->load->helper('form');
     	
     	// Afegim les regles necesaries.
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'password', 'required');
+        
         $this->form_validation->set_rules('name', 'name', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('pass', 'password', 'required');
         
         // Generem un missatge d'error personalitzat per a l'acció 'required'
         $this->form_validation->set_message('required', 'El camp %s es requerit.');
-        
-        if(!empty($_POST)){
-        	if ($this->form_validation->run()==TRUE) {
 
         		$name = $this->input->post('name');
         		$surname = $this->input->post('surname');
         		$email = $this->input->post('email');
-        		$password = $this->input->post('password');
-        		$user = $this->restauria_model->setUserForm($name, $surname, $email, $password);
+        		$username = $this->input->post('username');
+        		$pass = $this->input->post('pass');
+        		$user_id = $this->input->post('user_id');
+        
+        if(!empty($_POST)){
+        	if ($this->form_validation->run()==TRUE) {
+
+        		
+        		$user = $this->restauria_model->setUserForm($name, $surname, $email, $username,  $pass, $user_id);
         	
         	if ($user) {
         		redirect('main/index');
