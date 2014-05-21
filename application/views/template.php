@@ -1,100 +1,68 @@
+<!DOCTYPE html> 
 <html>
 	<head>
-		<title></title>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-		<script src="<?php echo base_url();?>assets/bootstrap/js/jquery.timepicker.js"></script>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap/css/jquery.timepicker.css" />
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- Latest compiled CSS datatabes  -->
-		<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-		<link rel="stylesheet" href="<?php echo base_url();?>assets/DataTables/media/css/jquery.dataTables.css">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/ColVis/css/dataTables.colVis.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/ColReorder/css/dataTables.colReorder.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/FixedHeader/css/dataTables.fixedHeader.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/TableTools/css/dataTables.tableTools.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/DataTables/extensions/FixedColumns/css/dataTables.fixedColumns.css">
+		<title>Restauria</title>
 
-	<!-- Optional theme -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-	<!-- jQuery-->
-
-	<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="<?php echo base_url();?>assets/bootstrap/js/bootstrap.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
-
-
-	<!-- Latest compiled and minified JavaScript -->
-	<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-	<!-- Latest compiled JavaScript datatables-->
-	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/jquerymobile/css/jquery.mobile-1.4.2.css" />
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="<?php echo base_url();?>assets/jquerymobile/js/jquery.mobile-1.4.2.js"></script>
+	<script type="text/javascript">
+    			jQuery.noConflict();
+		</script>
 
 	</head>
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<?php echo base_url();?>index.php/main/index">Restauria</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="<?php echo base_url();?>index.php/main/index">Inici</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men&uacute; <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url();?>index.php/main/setMenu">Insertar Men&uacute;s</a></li>
-            <li><a href="<?php echo base_url();?>index.php/main/getMenu">Visualitza Men&uacute;s</a></li>
-            <li><a href="#">Consulta Reserves</a></li>
-            <li><a href="#">Usuaris</a></li>
-          </ul>
-        </li>
-      </ul>
-      
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>	
-<!--<div class="container" align="right">Heu entrat com a: <?php echo $this->user->username; ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></div>
--->
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#taula').dataTable();
-} );
+		<div data-role = "page">
+			<div data-role="header" data-theme="a" class="ui-class">
+				<a href="<?php echo base_url();?>index.php/main/index" class="ui-btn ui-btn-b">Home</a>
+				<h1>Restauria</h1>
+				
+				
+			</div>
+			<div data-role="content">
+				<div data-role = "collapsible" data-collapsed="true">
+					<h4>Reserva</h4>
+					<ul data-role="listview">
+						<li><a href="">Realitza Reserva</a></li>
+						<li><a href="">Consulta Reserva</a></li>
+					</ul>
 
-</script>
+				</div>
+			</div>
 
-<script type="text/javascript">
+			<div data-role="content">
+				<div data-role = "collapsible" data-collapsed="true">
+					<h4>Consulta Carta</h4>
+					<ul data-role="listview">
+						<li><a href="">Tot</a></li>
+						<li><a href="">Entrants</a></li>
+						<li><a href="">Amanides</a></li>
+						<li><a href="">Sopes</a></li>
+						<li><a href="">Arrosos</a></li>
+						<li><a href="">Pasta</a></li>
+						<li><a href="">Carns</a></li>
+						<li><a href="">Peixos</a></li>
+						<li><a href="">Postres</a></li>
+						<li><a href="">Carta de vins</a></li>
+					</ul>
 
-  $('.dropdown-toggle').dropdown()
-</script>
-		<div class="container"><br><br><br><br><br><br><br><br><br><br>
-		 <p><input id="basicExample" type="text" class="time" /></p>
+				</div>
+			</div>
+
+			<div data-role="content">
+				
+			<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-r">On Trobar-nos</button>
+
+			</div>
+			<div data-role="footer" class="ui-class" data-theme="a">
+				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				<h4>&copy; Jordi Romero</h4>
+			</div>
 		</div>
-		<script type="text/javascript">
-  				$(function() {
-                    $('#basicExample').timepicker({
-                    	'minTime':'2:00pm',
-                    	'maxTime':'11:30pm',
-                    	'showDuration': false
-                    });
-                });
-		</script>
+		
 		
 	</body>
 </html>

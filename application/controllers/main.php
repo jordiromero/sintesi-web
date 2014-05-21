@@ -39,7 +39,7 @@ class Main extends CI_Controller {
             
         	// Se li assigna la informació a la variable $user.
         	$this->user = @$this->session->userdata('logged_user');
-
+        	$this->load->library('user_agent');
 
         
     }
@@ -48,16 +48,66 @@ class Main extends CI_Controller {
 
 		if(!@$this->user) redirect ('main/login');
 		
+		if($this->agent->is_mobile()){
+
+		$this->load->view('template');
+
+		}else{
 
 		$this->load->view('header');
 		$this->load->view('inici');
 		$this->load->view('footer');
+
+
+		}
+
+		
 
 		
 			
 	}
 
 	public function login() {
+
+		if($this->agent->is_mobile()){
+
+			$data = array();
+
+        // Afegim les regles necesaries.
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        // Generem un missatge d'error personalitzat per a l'acció 'required'
+        $this->form_validation->set_message('required', 'El camp %s es requerit.');
+        
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        // Si no està buit $_POST
+        if(!empty($_POST)) {
+            // Si les regles es cumpleixen, entrem a la condició.
+            if ($this->form_validation->run() == TRUE) {
+
+                // Obtenim la informació del usuari des de el model login_model.
+                $logged_user = $this->restauria_model->get($_POST['username'], $_POST['password']);
+            	 
+                // Si existeix l'usuari creem la sessió i redirigim al index.
+                if($logged_user) {
+                    $this->session->set_userdata('logged_user', $logged_user);
+                    redirect('main/index');
+                } else {
+                    // sino s' activa el error_login.
+                    $data['error_login'] = TRUE;
+                }
+            }
+
+
+        }
+        	$this->load->view('login_view_jqm', $data);
+        	
+           
+        
+
+		}else{
 
         $data = array();
 
@@ -68,6 +118,8 @@ class Main extends CI_Controller {
         // Generem un missatge d'error personalitzat per a l'acció 'required'
         $this->form_validation->set_message('required', 'El camp %s es requerit.');
         
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
         // Si no està buit $_POST
         if(!empty($_POST)) {
             // Si les regles es cumpleixen, entrem a la condició.
@@ -75,7 +127,7 @@ class Main extends CI_Controller {
 
                 // Obtenim la informació del usuari des de el model login_model.
                 $logged_user = $this->restauria_model->get($_POST['username'], $_POST['password']);
-
+            	 
                 // Si existeix l'usuari creem la sessió i redirigim al index.
                 if($logged_user) {
                     $this->session->set_userdata('logged_user', $logged_user);
@@ -88,11 +140,25 @@ class Main extends CI_Controller {
         }
 
         $this->load->view('login_view', $data);
+        }
 	}
 
+
 	public function logout() {
-        $this->session->unset_userdata('logged_user');
+		
+		if($this->agent->is_mobile()){
+
+		$this->session->unset_userdata('logged_user');
         redirect('main/index');
+
+
+		}else{
+
+		$this->session->unset_userdata('logged_user');
+        redirect('main/index');
+
+		}
+        
     }
 
     public function setUserForm(){
@@ -273,6 +339,7 @@ class Main extends CI_Controller {
     }
 
     public function datatime(){
+    	if(!@$this->user) redirect ('main/login');
     	$this->load->view('template');
     }
 
