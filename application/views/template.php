@@ -15,9 +15,9 @@
 	</head>
 	<body>
 
-		<div data-role = "page">
+		<div data-role = "page" id="pag1">
 			<div data-role="header" data-theme="a" class="ui-class">
-				<a href="<?php echo base_url();?>index.php/main/index" class="ui-btn ui-btn-b">Home</a>
+				<a href="#pag1" data-icon="home">Home</a>
 				<h1>Restauria</h1>
 				
 				
@@ -37,8 +37,8 @@
 				<div data-role = "collapsible" data-collapsed="true">
 					<h4>Consulta Carta</h4>
 					<ul data-role="listview">
-						<li><a href="">Tot</a></li>
-						<li><a href="">Entrants</a></li>
+						<li><a href="#menu-all">Tot</a></li>
+						<li><a href="#menu-starters">Entrants</a></li>
 						<li><a href="">Amanides</a></li>
 						<li><a href="">Sopes</a></li>
 						<li><a href="">Arrosos</a></li>
@@ -58,11 +58,58 @@
 
 			</div>
 			<div data-role="footer" class="ui-class" data-theme="a">
-				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
 				<h4>&copy; Jordi Romero</h4>
+				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
 			</div>
-		</div>
+		</div><!--Final Pàgina 1-->
+
+		<!--Pàgina carta tot -->
+		<div data-role="page" id="menu-all">
+			<div data-role="header">
+				<a href="#pag1" data-icon="home">Home</a>
+				<h1>Restauria</h1>
+
+
+
+			</div>
+
+
 		
+
+		<div data-role="content">
+			<p>P&agrave;gina men&uacute; 1</p>
+
+		</div>
+
+		<div data-role="footer" class="ui-class" data-theme="a">
+				<h4>&copy; Jordi Romero</h4>
+				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+			</div>
+		</div><!--Final pàgina carta tot -->
+
+		<!--Pàgina carta entrants -->
+		<div data-role="page" id="menu-starters">
+			<div data-role="header">
+				<a href="#pag1" data-icon="home">Home</a>
+				<h1>Restauria</h1>
+
+
+
+			</div>
+
+
+		
+
+		<div data-role="content">
+			<p>P&agrave;gina starters</p>
+
+		</div>
+
+		<div data-role="footer" class="ui-class" data-theme="a">
+				<h4>&copy; Jordi Romero</h4>
+				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+			</div>
+		</div><!--Final pàgina carta entrants -->
 		
 	</body>
 </html>

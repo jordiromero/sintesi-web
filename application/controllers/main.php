@@ -358,6 +358,13 @@ class Main extends CI_Controller {
         $this->load->view('footer');
     }
 
+
+    function jsonGet(){
+    	
+    	$data['json'] = $this->restauria_model->jsonGet();
+    	$this->load->view('json_view',$data);
+    }
+
     
 
 

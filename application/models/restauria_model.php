@@ -125,5 +125,11 @@ class Restauria_model extends CI_Model {
         return $query;
     }
 
+    function jsonGet(){
+        
+        $query = $this->db->get('menu');
+        return $query->result();
+    }
+
     
 }
