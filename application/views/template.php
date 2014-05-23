@@ -31,9 +31,9 @@
 					</ul>
 
 				</div>
-			</div>
+			
 
-			<div data-role="content">
+			
 				<div data-role = "collapsible" data-collapsed="true">
 					<h4>Consulta Carta</h4>
 					<ul data-role="listview">
@@ -50,16 +50,16 @@
 					</ul>
 
 				</div>
-			</div>
+			
 
-			<div data-role="content">
+			
 				
 			<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-r">On Trobar-nos</button>
-
 			</div>
+			
 			<div data-role="footer" class="ui-class" data-theme="a">
 				<h4>&copy; Jordi Romero</h4>
-				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				<!--<p><?php echo $this->user->username;  ?>-->  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
 			</div>
 		</div><!--Final Pàgina 1-->
 
@@ -68,22 +68,37 @@
 			<div data-role="header">
 				<a href="#pag1" data-icon="home">Home</a>
 				<h1>Restauria</h1>
-
-
-
 			</div>
 
+		<div data-role="content">
+			<div class="content-primary">
+				<div id = "list"></div>
+			<script>
+				$function({
+				$.getJSON("http://192.168.202.184/sintesi/index.php/main/jsonGet", function(data){
+					var items = [];
+					$.each(data, function(key, val){
+						items.push("<li id='"+key+"'>"+val+"</li>");
+					});
 
+					$("<ul/>",{
+						"class": "new-list",
+						html:items.join('')
+					}).appendTo("#list");
+				});
+			});
+
+			</script>
+
+			</div>
 		
 
-		<div data-role="content">
-			<p>P&agrave;gina men&uacute; 1</p>
-
+		
 		</div>
 
 		<div data-role="footer" class="ui-class" data-theme="a">
 				<h4>&copy; Jordi Romero</h4>
-				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				<p><!--<?php echo $this->user->username;  ?>-->  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
 			</div>
 		</div><!--Final pàgina carta tot -->
 
@@ -100,14 +115,14 @@
 
 		
 
-		<div data-role="content">
-			<p>P&agrave;gina starters</p>
+			<div data-role="content">
+				<p>P&agrave;gina starters</p>
 
-		</div>
+			</div>
 
-		<div data-role="footer" class="ui-class" data-theme="a">
+			<div data-role="footer" class="ui-class" data-theme="a">
 				<h4>&copy; Jordi Romero</h4>
-				<p><?php echo $this->user->username;  ?>  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				<p><!--<?php echo $this->user->username;  ?>-->  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
 			</div>
 		</div><!--Final pàgina carta entrants -->
 		

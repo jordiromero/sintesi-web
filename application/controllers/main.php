@@ -339,7 +339,7 @@ class Main extends CI_Controller {
     }
 
     public function datatime(){
-    	if(!@$this->user) redirect ('main/login');
+    	//if(!@$this->user) redirect ('main/login');
     	$this->load->view('template');
     }
 
@@ -361,8 +361,12 @@ class Main extends CI_Controller {
 
     function jsonGet(){
     	
-    	$data['json'] = $this->restauria_model->jsonGet();
-    	$this->load->view('json_view',$data);
+    	//$data['json'] = $this->restauria_model->jsonGet();
+    	//$this->load->view('json_view',$data);
+    	if ( $this->input->is_ajax_request() ):
+		$this->output->set_content_type('application/json');
+		$this->output->set_output( json_encode($data) );
+		endif;
     }
 
     

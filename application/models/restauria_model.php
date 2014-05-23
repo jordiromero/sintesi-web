@@ -127,7 +127,9 @@ class Restauria_model extends CI_Model {
 
     function jsonGet(){
         
-        $query = $this->db->get('menu');
+        $this->db->order_by("menu_type.m_type", "asc"); 
+        $this->db->select('menu.image, menu.name, menu.description, menu_type.m_type, menu.price')->from('menu')->join('menu_type','menu_type.id = menu.type');
+        $query = $this->db->get();
         return $query->result();
     }
 
