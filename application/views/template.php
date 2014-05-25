@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/jquerymobile/css/jquery.mobile-1.4.2.css" />
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="<?php echo base_url();?>assets/jquerymobile/js/jquery.mobile-1.4.2.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/jquery-ui-map/demos/js/modernizr-2.0.6/modernizr.min.js"></script>
 	<script type="text/javascript">
     			jQuery.noConflict();
 		</script>
@@ -18,6 +19,7 @@
 		<div data-role = "page" id="pag1">
 			<div data-role="header" data-theme="a" class="ui-class">
 				<a href="#pag1" data-icon="home">Home</a>
+				<!--<p><?php echo $this->user->username;  ?>--><a href="<?php echo base_url();?>index.php/main/logout">Sortir </a>
 				<h1>Restauria</h1>
 				
 				
@@ -50,16 +52,12 @@
 					</ul>
 
 				</div>
-			
-
-			
-				
-			<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-r">On Trobar-nos</button>
+			<a href="#map" data-role = "button" data-icon="caret-r">On Trobar-nos</a>
 			</div>
 			
 			<div data-role="footer" class="ui-class" data-theme="a">
 				<h4>&copy; Jordi Romero</h4>
-				<!--<p><?php echo $this->user->username;  ?>-->  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				
 			</div>
 		</div><!--Final Pàgina 1-->
 
@@ -68,13 +66,14 @@
 			<div data-role="header">
 				<a href="#pag1" data-icon="home">Home</a>
 				<h1>Restauria</h1>
+				<!--<?php echo $this->user->username;  ?>--><a href="<?php echo base_url();?>index.php/main/logout">Sortir </a>
 			</div>
 
 		<div data-role="content">
 			<div class="content-primary">
 				<div id = "list"></div>
 			<script>
-				$function({
+				
 				$.getJSON("http://192.168.202.184/sintesi/index.php/main/jsonGet", function(data){
 					var items = [];
 					$.each(data, function(key, val){
@@ -86,19 +85,17 @@
 						html:items.join('')
 					}).appendTo("#list");
 				});
-			});
+		
 
 			</script>
 
 			</div>
 		
-
-		
 		</div>
 
 		<div data-role="footer" class="ui-class" data-theme="a">
 				<h4>&copy; Jordi Romero</h4>
-				<p><!--<?php echo $this->user->username;  ?>-->  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				
 			</div>
 		</div><!--Final pàgina carta tot -->
 
@@ -107,13 +104,9 @@
 			<div data-role="header">
 				<a href="#pag1" data-icon="home">Home</a>
 				<h1>Restauria</h1>
-
-
+				<!--<?php echo $this->user->username;  ?>--><a href="<?php echo base_url();?>index.php/main/logout">Sortir </a>
 
 			</div>
-
-
-		
 
 			<div data-role="content">
 				<p>P&agrave;gina starters</p>
@@ -122,9 +115,46 @@
 
 			<div data-role="footer" class="ui-class" data-theme="a">
 				<h4>&copy; Jordi Romero</h4>
-				<p><!--<?php echo $this->user->username;  ?>-->  - <a href="<?php echo base_url();?>index.php/main/logout">Sortir </a></p>
+				
 			</div>
 		</div><!--Final pàgina carta entrants -->
+
+		<!--Pàgina mapa -->
+		<div data-role="page" id="map">
+			<div data-role="header">
+				<a href="#pag1" data-icon="home">Home</a>
+				<h1>Restauria</h1>
+				<!--<?php echo $this->user->username;  ?>--><a href="<?php echo base_url();?>index.php/main/logout">Sortir </a>
+			</div>
+
+		<div data-role="content">
+			<div id="map_canvas" class="map rounded"></div>
+		</div>
+
+		<div data-role="footer" class="ui-class" data-theme="a">
+				<h4>&copy; Jordi Romero</h4>
+				
+			</div>
+
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        	<script type="text/javascript" src="<?php echo base_url();?>assets/jquery-ui-map/ui/jquery.ui.map.js"></script>
+        	<script type="text/javascript" src="<?php echo base_url();?>assets/jquery-ui-map/ui/jquery.ui.map.services.js"></script>
+        	<script type="text/javascript" src="<?php echo base_url();?>assets/jquery-ui-map/demos/js/demo.js"></script>
+			
+			<script type="text/javascript">
+            $(function() { 
+				demo.add(function() {
+					$('#map_canvas').gmap({'center': '40.81471, 0.515187', 'zoom': 16, 'disableDefaultUI':true, 'callback': function() {
+						var self = this;
+						self.addMarker({'position': this.get('map').getCenter() }).click(function() {
+							self.openInfoWindow({ 'content': 'El teu restaurant' }, this);
+						});	
+					}});
+				}).load();
+			});
+        </script>
+		</div><!--Final pàgina mapa -->
 		
 	</body>
 </html>

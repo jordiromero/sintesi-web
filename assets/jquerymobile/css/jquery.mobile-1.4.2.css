@@ -4696,3 +4696,7 @@ html .ui-popup .ui-field-contain > label + .ui-flipswitch {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 	padding: .2em;
 }
+
+/*Afegim els valors per a crear el mapa*/
+.map { width: 100%; height:320px; }
+.streetview { width:100%; height:300px; }
